@@ -5,7 +5,7 @@ import argparse
 import os
 import sys
 
-# it's contained it the imported secrep.py
+# it's contained in the imported secret.py
 # api_id = secret.api_id
 # api_hash = secret.api_hash
 
