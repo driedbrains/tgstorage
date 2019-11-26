@@ -2,7 +2,7 @@
 
 upload files to a personal Telegram cloud from cli.
 
-# Usage:
+### Usage:
 
 - get from [https://my.telegram.org/](https://my.telegram.org/) ```api_id``` and ```api_hash```.
 - copy secret.py.template to secret.py and edit.
