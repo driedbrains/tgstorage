@@ -16,3 +16,16 @@ source bin/activate
 pip install -r requirements.txt
 python upload.py -u testpic.jpg
 ```
+```bash
+$ python upload.py --help
+usage: upload.py [-h] [-u [filename [filename ...]]] [-l [N]]
+
+Upload file to your Telegram storage
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -u [filename [filename ...]], --upload [filename [filename ...]]
+                        upload file to storage
+  -l [N], --list [N]    list last messages (default: 10)
+
+```
