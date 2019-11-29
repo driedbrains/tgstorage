@@ -16,7 +16,7 @@ parser.add_argument('-u',
                     help = 'upload file to storage',
                     metavar = 'filename',
                     action = 'store',
-                    nargs ='*',
+                    nargs = argparse.REMAINDER,
                     dest = 'args_file'
 )
 parser.add_argument('-l',
@@ -37,7 +37,7 @@ if (len(sys.argv) == 1):
     sys.exit()
 
 
-if (args.args_file):
+if (args.args_file is not None):
     filename = args.args_file
 
     for i in filename:
@@ -67,8 +67,10 @@ async def main():
 
 async def upload(entity, file_list):
     # file = await client.upload_file(filename)
-    res = await client.send_file(entity,
-                                 filename)
+    for f in filename:
+        res = await client.send_file(entity,
+                                     f,
+                                     force_document = True)
     # print(res)
 
 
@@ -77,7 +79,7 @@ async def listMessages(entity, limit):
                                               reverse = False,
                                               limit = limit):
         #for i in message.media.document.attributes:print(i)
-        print(message.media)
+        print(message.media.document.attributes[0].file_name)
         print("------------------------------------")
 
 
