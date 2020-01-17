@@ -1,4 +1,5 @@
-from telethon.tl.types import InputMessagesFilterDocument, InputMessagesFilterPhotos, InputMessagesFilterEmpty
+from telethon.tl.types import MessageMediaDocument,MessageMediaPhoto
+import pprint
 from telethon import TelegramClient, connection
 from secret import *
 import socks
@@ -78,9 +79,10 @@ async def listMessages(entity, limit):
     async for message in client.iter_messages(entity,
                                               reverse = False,
                                               limit = limit):
-        #for i in message.media.document.attributes:print(i)
-        print(message.media.document.attributes[0].file_name)
-        print("------------------------------------")
+        if isinstance(message.media, MessageMediaDocument):
+            media = message.document
+            print( media )
+            print("------------------------------------")
 
 
 with client:
